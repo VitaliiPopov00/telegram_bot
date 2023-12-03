@@ -4,36 +4,36 @@ export class StartCommand {
     }
 
     exec() {
-        this.bot.command('start', async (ctx) => {
+        this.bot.command("start", async (ctx) => {
             await ctx.setMyCommands([
                 {
                     command: '/start',
-                    description: 'Запуск бота',
+                    description: 'Запуск бота'
                 },
                 {
                     command: '/help',
-                    description: 'Информация',
+                    description: 'Информация'
                 },
                 {
                     command: '/setup',
-                    description: 'Указать фильтры',
+                    description: 'Указать фильтры'
                 },
                 {
                     command: '/search',
-                    description: 'Искать вакансии',
+                    description: 'Искать вакансии'
                 },
             ]);
 
             ctx.reply(buildMessage(ctx.from));
-        });
+        })
     }
 }
 
 const buildMessage = (from) => {
     return (
-        "Привет, " +
-        `${from?.first_name || from?.username || "юзер"}\n\n` +
-        "Я могу помочь найти тебе новую работу!\n" +
-        "Посмотреть доступные команды можно в меню"
+        "Привет, " + 
+        `${from?.first_name || from?.username || "user"}\n\n` +
+        `Я могу помочь найти тебе новую работу!\n` +
+        `Посмотреть доступные команды можно в меню`
     );
 }
